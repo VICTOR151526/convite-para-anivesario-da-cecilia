@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8efff">
+<title>Convite | Cecilia Emanuely</title>
+<style>
+  :root{
+    --ink:#684477; --plum:#754785; --lav:#c5a4d9; --pink:#f2dce9;
+    --paper:#fffaff; --line:#e5d1ef; --muted:#8f7598;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; min-height:100vh; padding:24px 14px;
+    display:grid; place-items:center;
+    background:
+      radial-gradient(ellipse at 8% 15%,rgba(221,196,240,.8),transparent 30%),
+      radial-gradient(ellipse at 90% 82%,rgba(246,218,234,.8),transparent 32%),
+      #f8f1fb;
+    color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+  }
+  .card{
+    width:min(100%,560px); position:relative; isolation:isolate; overflow:hidden;
+    padding:clamp(26px,6vw,46px) clamp(20px,6vw,42px) 30px;
+    text-align:center; border-radius:30px;
+    background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(253,247,255,.98));
+    border:1px solid #dfc9eb;
+    box-shadow:0 24px 70px rgba(93,54,111,.16),inset 0 0 0 7px rgba(230,211,241,.32);
+  }
+  .card:before{content:"";position:absolute;inset:13px;border:1px solid rgba(198,164,218,.55);border-radius:22px;pointer-events:none;z-index:-1}
+  .decor{position:absolute;pointer-events:none;z-index:-1;opacity:.88}
+  .decor.tl{width:110px;top:10px;left:0;transform:rotate(-12deg)}
+  .decor.br{width:125px;right:-8px;bottom:5px;transform:rotate(165deg)}
+  .eyebrow{font:700 10px/1.6 Arial,sans-serif;text-transform:uppercase;letter-spacing:3.2px;color:#a27bb5}
+  .butterfly{width:58px;height:48px;margin:15px auto 3px;display:block}
+  h1{font-family:'Brush Script MT','Segoe Script',cursive;font-weight:500;font-size:clamp(52px,12vw,78px);line-height:.86;letter-spacing:-1.8px;color:var(--plum);margin:12px 0 13px}
+  .birthday{font-size:21px;letter-spacing:2px;color:#9b6eb0}
+  .ornament{display:flex;align-items:center;justify-content:center;gap:12px;color:#c4a0d6;margin:20px auto;max-width:260px}
+  .ornament:before,.ornament:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,#d8bee6)}
+  .ornament:after{transform:scaleX(-1)}
+  .message{font-size:17px;line-height:1.7;max-width:385px;margin:0 auto;color:#765d7d}
+  .date{font-size:27px;color:var(--plum);margin:25px 0 5px}
+  .time{font:700 11px Arial,sans-serif;letter-spacing:3px;color:#9b7ba5}
+  .note{font:13px/1.7 Arial,sans-serif;color:#927a99;max-width:350px;margin:18px auto 20px}
+  .actions{display:grid;gap:11px;max-width:365px;margin:0 auto}
+  .action{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    min-height:52px;padding:13px 17px;border-radius:999px;text-decoration:none;
+    font:700 12px/1.35 Arial,sans-serif;letter-spacing:.7px;
+    transition:transform .2s,box-shadow .2s,background .2s;
+  }
+  .action:hover,.action:focus-visible{transform:translateY(-2px);box-shadow:0 8px 20px #68447722;outline:2px solid #c6a5d8;outline-offset:3px}
+  .location{color:#704780;background:#f1e5f7;border:1px solid #d9c1e7}
+  .whatsapp{color:white;background:#754785;border:1px solid #754785}
+  .action svg{width:20px;height:20px;flex:none}
+
+  .gifts{
+    max-width:365px;margin:24px auto 0;padding:19px 17px 17px;
+    border:1px solid #e5d1ef;border-radius:22px;
+    background:linear-gradient(145deg,rgba(248,239,255,.82),rgba(255,246,251,.9));
+    box-shadow:inset 0 0 0 4px rgba(230,211,241,.18);
+  }
+  .gifts h2{font:600 21px/1.25 Georgia,'Times New Roman',serif;color:var(--plum);margin:0 0 7px}
+  .gifts-intro{font:12px/1.6 Arial,sans-serif;color:#927a99;margin:0 auto 14px}
+  .gift-list{display:grid;gap:9px;text-align:left}
+  .gift-item{
+    display:flex;align-items:center;gap:11px;padding:11px 12px;
+    border:1px solid #eadcf2;border-radius:15px;background:rgba(255,255,255,.78);
+    color:#765d7d;text-decoration:none;transition:transform .2s,box-shadow .2s;
+  }
+  .gift-item:hover,.gift-item:focus-visible{transform:translateY(-2px);box-shadow:0 7px 16px #68447718;outline:2px solid #c6a5d8;outline-offset:2px}
+  .gift-icon{width:36px;height:36px;flex:none;display:grid;place-items:center;border-radius:50%;background:#f1e5f7;font-size:19px}
+  .gift-copy{font:12px/1.45 Arial,sans-serif}
+  .gift-copy strong{display:block;color:#754785;font-size:12px;margin-bottom:2px}
+  .gift-hint{font:10px/1.5 Arial,sans-serif;color:#a18aa8;margin:12px 0 0}
+
+
+  .teddy-decor{position:absolute;width:66px;height:70px;opacity:.9;pointer-events:none;z-index:0}
+  .teddy-decor.left{left:12px;top:150px;transform:rotate(-8deg)}
+  .teddy-decor.right{right:10px;top:275px;transform:rotate(7deg)}
+  .flower-decor{position:absolute;width:72px;height:82px;opacity:.72;pointer-events:none;z-index:0}
+  .flower-decor.one{left:5px;bottom:175px;transform:rotate(-12deg)}
+  .flower-decor.two{right:4px;bottom:260px;transform:rotate(14deg)}
+  .card>*:not(.decor):not(.teddy-decor):not(.flower-decor){position:relative;z-index:1}
+  @media(max-width:420px){.teddy-decor{width:48px;height:52px;opacity:.58}.teddy-decor.left{left:3px;top:155px}.teddy-decor.right{right:2px;top:280px}.flower-decor{width:52px;height:60px;opacity:.5}}
+
+  .signature{font-family:'Brush Script MT','Segoe Script',cursive;font-size:28px;color:#a27bb5;margin-top:23px}
+  .tiny{font:10px Arial,sans-serif;color:#b39fba;margin-top:12px}
+  @media(max-width:380px){body{padding:12px 8px}.card{padding:30px 17px 25px}.message{font-size:16px}.date{font-size:24px}}
+  @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="card" aria-label="Convite de aniversário de Cecilia Emanuely">
+  <!-- Ilustrações vetoriais incorporadas no próprio HTML: não precisam de arquivos externos -->
+
+  <svg class="teddy-decor left" viewBox="0 0 80 86" aria-hidden="true">
+    <g stroke="#b995cc" stroke-width="1.5" stroke-linejoin="round">
+      <circle cx="22" cy="18" r="10" fill="#f1e3f3"/><circle cx="58" cy="18" r="10" fill="#f1e3f3"/>
+      <circle cx="40" cy="30" r="23" fill="#ead7e8"/><ellipse cx="40" cy="61" rx="22" ry="19" fill="#f0e0ed"/>
+      <ellipse cx="18" cy="56" rx="8" ry="13" transform="rotate(25 18 56)" fill="#ead7e8"/><ellipse cx="62" cy="56" rx="8" ry="13" transform="rotate(-25 62 56)" fill="#ead7e8"/>
+      <ellipse cx="31" cy="78" rx="8" ry="5" fill="#ead7e8"/><ellipse cx="49" cy="78" rx="8" ry="5" fill="#ead7e8"/>
+      <circle cx="32" cy="29" r="2" fill="#80558f"/><circle cx="48" cy="29" r="2" fill="#80558f"/><ellipse cx="40" cy="36" rx="6" ry="4" fill="#f5dce8"/>
+    </g><path d="M37 39 Q40 43 43 39 M30 49 Q40 56 50 49" fill="none" stroke="#c49acb" stroke-width="3" stroke-linecap="round"/>
+  </svg>
+  <svg class="teddy-decor right" viewBox="0 0 80 86" aria-hidden="true">
+    <g stroke="#c49ecf" stroke-width="1.5" stroke-linejoin="round">
+      <circle cx="22" cy="18" r="10" fill="#f7e4ed"/><circle cx="58" cy="18" r="10" fill="#f7e4ed"/>
+      <circle cx="40" cy="30" r="23" fill="#f0dfe9"/><ellipse cx="40" cy="61" rx="22" ry="19" fill="#f5e7ef"/>
+      <ellipse cx="18" cy="56" rx="8" ry="13" transform="rotate(25 18 56)" fill="#f0dfe9"/><ellipse cx="62" cy="56" rx="8" ry="13" transform="rotate(-25 62 56)" fill="#f0dfe9"/>
+      <ellipse cx="31" cy="78" rx="8" ry="5" fill="#f0dfe9"/><ellipse cx="49" cy="78" rx="8" ry="5" fill="#f0dfe9"/>
+      <circle cx="32" cy="29" r="2" fill="#80558f"/><circle cx="48" cy="29" r="2" fill="#80558f"/><ellipse cx="40" cy="36" rx="6" ry="4" fill="#f5dce8"/>
+    </g><path d="M37 39 Q40 43 43 39 M30 49 Q40 56 50 49" fill="none" stroke="#c49acb" stroke-width="3" stroke-linecap="round"/>
+  </svg>
+  <svg class="flower-decor one" viewBox="0 0 80 90" aria-hidden="true">
+    <g stroke="#c49ecf" stroke-width="1.2"><path d="M40 46 Q36 67 46 86" fill="none" stroke="#b3c6a6" stroke-width="2"/><ellipse cx="34" cy="67" rx="7" ry="13" transform="rotate(-45 34 67)" fill="#dce8d5"/>
+    <g transform="translate(35 28)" fill="#f4ddea"><ellipse cy="-13" rx="7" ry="12"/><ellipse cy="13" rx="7" ry="12"/><ellipse cx="-13" rx="12" ry="7"/><ellipse cx="13" rx="12" ry="7"/><ellipse cx="-9" cy="-9" rx="7" ry="10" transform="rotate(-45 -9 -9)"/><ellipse cx="9" cy="-9" rx="7" ry="10" transform="rotate(45 9 -9)"/></g><circle cx="35" cy="28" r="6" fill="#e8c78e"/></g>
+  </svg>
+  <svg class="flower-decor two" viewBox="0 0 80 90" aria-hidden="true">
+    <g stroke="#c49ecf" stroke-width="1.2"><path d="M40 46 Q44 67 34 86" fill="none" stroke="#b3c6a6" stroke-width="2"/><ellipse cx="47" cy="67" rx="7" ry="13" transform="rotate(45 47 67)" fill="#dce8d5"/>
+    <g transform="translate(43 28)" fill="#eadcf6"><ellipse cy="-13" rx="7" ry="12"/><ellipse cy="13" rx="7" ry="12"/><ellipse cx="-13" rx="12" ry="7"/><ellipse cx="13" rx="12" ry="7"/><ellipse cx="-9" cy="-9" rx="7" ry="10" transform="rotate(-45 -9 -9)"/><ellipse cx="9" cy="-9" rx="7" ry="10" transform="rotate(45 9 -9)"/></g><circle cx="43" cy="28" r="6" fill="#e8c78e"/></g>
+  </svg>
+
+  <svg class="decor tl" viewBox="0 0 150 130" aria-hidden="true">
+    <g fill="none" stroke="#c6a6d9" stroke-width="1.8" stroke-linecap="round">
+      <path d="M7 15 Q44 28 45 68 T90 111"/><path d="M26 29 Q9 34 15 49 Q32 48 26 29Z" fill="#eadcf3"/>
+      <path d="M42 53 Q63 38 65 57 Q57 70 42 53Z" fill="#f4e5ef"/>
+      <path d="M63 80 Q43 75 47 94 Q61 99 63 80Z" fill="#eadcf3"/>
+    </g>
+    <g transform="translate(83 31)" fill="#e9d8f4" stroke="#b895d0" stroke-width="1.2">
+      <ellipse cx="-10" cy="-5" rx="9" ry="14" transform="rotate(-38 -10 -5)"/>
+      <ellipse cx="10" cy="-5" rx="9" ry="14" transform="rotate(38 10 -5)"/>
+      <ellipse cx="-7" cy="8" rx="7" ry="10" transform="rotate(-30 -7 8)"/>
+      <ellipse cx="7" cy="8" rx="7" ry="10" transform="rotate(30 7 8)"/>
+      <path d="M0 -8 L0 17" stroke="#8e6aa5" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <circle cx="112" cy="78" r="3" fill="#d5b8e5"/><path d="M105 92 l3 6 6 1-5 4 1 6-5-4-5 3 2-6-4-5 6 1z" fill="#d8b8e7"/>
+  </svg>
+  <svg class="decor br" viewBox="0 0 150 130" aria-hidden="true">
+    <g fill="none" stroke="#c6a6d9" stroke-width="1.8" stroke-linecap="round">
+      <path d="M7 15 Q44 28 45 68 T90 111"/><path d="M26 29 Q9 34 15 49 Q32 48 26 29Z" fill="#eadcf3"/>
+      <path d="M42 53 Q63 38 65 57 Q57 70 42 53Z" fill="#f4e5ef"/>
+      <path d="M63 80 Q43 75 47 94 Q61 99 63 80Z" fill="#eadcf3"/>
+    </g>
+    <g transform="translate(83 31)" fill="#f4e3ef" stroke="#c59ecf" stroke-width="1.2">
+      <ellipse cx="-10" cy="-5" rx="9" ry="14" transform="rotate(-38 -10 -5)"/>
+      <ellipse cx="10" cy="-5" rx="9" ry="14" transform="rotate(38 10 -5)"/>
+      <ellipse cx="-7" cy="8" rx="7" ry="10" transform="rotate(-30 -7 8)"/>
+      <ellipse cx="7" cy="8" rx="7" ry="10" transform="rotate(30 7 8)"/>
+      <path d="M0 -8 L0 17" stroke="#8e6aa5" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <circle cx="112" cy="78" r="3" fill="#d5b8e5"/>
+  </svg>
+
+  <div class="eyebrow">Um dia doce e cheio de encanto</div>
+  <svg class="butterfly" viewBox="0 0 80 64" role="img" aria-label="Borboleta lilás decorativa">
+    <g stroke="#a781bc" stroke-width="1.5">
+      <path d="M39 29 C22 0 2 9 13 29 C17 38 27 38 38 34Z" fill="#eadcf6"/>
+      <path d="M41 29 C58 0 78 9 67 29 C63 38 53 38 42 34Z" fill="#f5e1ef"/>
+      <path d="M38 34 C22 30 18 46 31 49 C37 49 39 42 40 36Z" fill="#e1c8ef"/>
+      <path d="M42 34 C58 30 62 46 49 49 C43 49 41 42 40 36Z" fill="#f0d5e8"/>
+      <path d="M40 28 L40 44" stroke="#80558f" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M39 28 Q31 17 28 18 M41 28 Q49 17 52 18" fill="none" stroke-linecap="round"/>
+    </g>
+  </svg>
+
+  <h1>Cecilia<br>Emanuely</h1>
+  <div class="birthday">1 aninho</div>
+  <div class="ornament" aria-hidden="true">♡</div>
+  <p class="message">Um pedacinho de céu completa seu primeiro aninho!<br>Venha celebrar esse momento tão especial, cheio de amor, alegria e carinho.</p>
+  <div class="date">21 de novembro</div>
+  <div class="time">ÀS 16:00</div>
+  <div class="ornament" aria-hidden="true">✧</div>
+  <p class="note">Sua presença vai deixar esse dia ainda mais lindo. Toque nos botões abaixo para conhecer o espaço do evento ou confirmar sua presença.</p>
+
+  <nav class="actions" aria-label="Ações do convite">
+    <a class="action location" href="https://www.instagram.com/reisespaco_eventos/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram do Reis Espaço Eventos">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>
+      </svg>
+      VER LOCAL DO EVENTO
+    </a>
+    <a class="action whatsapp" href="https://wa.me/5562982413186?text=Ol%C3%A1%21%20Quero%20confirmar%20minha%20presen%C3%A7a%20no%20anivers%C3%A1rio%20da%20Cecilia%20Emanuely." target="_blank" rel="noopener noreferrer" aria-label="Confirmar presença pelo WhatsApp">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3 20l1-4.8a8.4 8.4 0 1 1 16.5-3.5Z"/><path d="M8.5 8.2c.4 2.7 2.5 4.8 5.2 5.3l1.2-1.2 2 1c-.2 1.2-1.1 2-2.4 2-3.7-.4-6.8-3.5-7.2-7.2 0-1.2.8-2.2 2-2.4l1 2-1.8 1.5Z"/>
+      </svg>
+      CONFIRMAR PRESENÇA
+    </a>
+  </nav>
+
+  <section class="gifts" aria-labelledby="gift-title">
+    <h2 id="gift-title">Sugestões de presentes ♡</h2>
+    <p class="gifts-intro">Se desejar presentear a Cecilia, aqui vão algumas ideias escolhidas com carinho:</p>
+    <div class="gift-list">
+      <div class="gift-item">
+        <span class="gift-icon" aria-hidden="true">🧸</span>
+        <span class="gift-copy"><strong>Brinquedos educativos</strong>Ideias para estimular a descoberta e a brincadeira.</span>
+      </div>
+      <div class="gift-item">
+        <span class="gift-icon" aria-hidden="true">👗</span>
+        <span class="gift-copy"><strong>Roupinhas</strong>Tamanho 1 ano.</span>
+      </div>
+      <div class="gift-item">
+        <span class="gift-icon" aria-hidden="true">👟</span>
+        <span class="gift-copy"><strong>Sapatinhos</strong>Número 20.</span>
+      </div>
+    </div>
+    <p class="gift-hint">O mais importante é compartilhar esse momento especial com a gente!</p>
+  </section>
+
+  <div class="signature">Com carinho, esperamos por você!</div>
+  <div class="tiny">Convite digital interativo · toque nos botões para abrir os links</div>
+</main>
+</body>
+</html>
